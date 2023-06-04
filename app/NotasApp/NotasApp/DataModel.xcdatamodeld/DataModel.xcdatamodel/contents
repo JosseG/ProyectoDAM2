@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Categoria" representedClassName=".Categoria" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="tipo" optional="YES" attributeType="String"/>
+        <relationship name="tareas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tarea" inverseName="categoria" inverseEntity="Tarea"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint/>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Cuenta" representedClassName=".Cuenta" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="username" optional="YES" attributeType="String"/>
+        <relationship name="usuario" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Usuario" inverseName="cuenta" inverseEntity="Usuario"/>
+    </entity>
+    <entity name="Tarea" representedClassName=".Tarea" syncable="YES">
+        <attribute name="actualizadoEn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="creadoEn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="descripcion" optional="YES" attributeType="String"/>
+        <attribute name="estado" optional="YES" attributeType="String"/>
+        <attribute name="fechaFin" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="fechaLimite" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="prioridad" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="categoria" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Categoria" inverseName="tareas" inverseEntity="Categoria"/>
+        <relationship name="usuario" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Usuario" inverseName="tareas" inverseEntity="Usuario"/>
+    </entity>
+    <entity name="Usuario" representedClassName=".Usuario" syncable="YES">
+        <attribute name="apellidos" optional="YES" attributeType="String"/>
+        <attribute name="correo" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="nacimiento" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="nombres" optional="YES" attributeType="String"/>
+        <attribute name="telefono" optional="YES" attributeType="String"/>
+        <relationship name="cuenta" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cuenta" inverseName="usuario" inverseEntity="Cuenta"/>
+        <relationship name="tareas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tarea" inverseName="usuario" inverseEntity="Tarea"/>
+    </entity>
+</model>
