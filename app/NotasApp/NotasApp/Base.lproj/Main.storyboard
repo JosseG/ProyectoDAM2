@@ -12,7 +12,7 @@
         <!--Login-->
         <scene sceneID="nUT-Wp-Gkg">
             <objects>
-                <viewController id="DkZ-fK-6FY" customClass="LoginViewController" customModule="NotasApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DkZ-fK-6FY" customClass="LoginViewController" customModule="NotasApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C3M-Y9-9Tm">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -162,14 +162,31 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxs-Bj-30H">
-                                <rect key="frame" x="107.66666666666667" y="171" width="177.66666666666663" height="35"/>
+                                <rect key="frame" x="107.66666666666667" y="215" width="177.66666666666663" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="X14-Zr-HTg"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Este es un elemento"/>
                                 <connections>
-                                    <segue destination="Ahs-fg-UqR" kind="presentation" id="EVE-3T-k5Q"/>
+                                    <segue destination="Ahs-fg-UqR" kind="show" id="EVE-3T-k5Q"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienvenido " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egK-dx-KMC">
+                                <rect key="frame" x="152.66666666666666" y="258" width="88" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="00k-LR-b09"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zW6-xf-tdP">
+                                <rect key="frame" x="159" y="408.66666666666669" width="75" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="logout:" destination="Zcd-0C-2dT" eventType="touchUpInside" id="byC-dS-bMD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -177,6 +194,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="qxs-Bj-30H" firstAttribute="centerX" secondItem="fKf-0q-4n1" secondAttribute="centerX" id="42X-zH-Uyj"/>
+                            <constraint firstItem="egK-dx-KMC" firstAttribute="top" secondItem="qxs-Bj-30H" secondAttribute="bottom" constant="8" symbolic="YES" id="OlW-9Q-vXP"/>
+                            <constraint firstItem="zW6-xf-tdP" firstAttribute="centerX" secondItem="fKf-0q-4n1" secondAttribute="centerX" id="Yfg-Fj-SR3"/>
+                            <constraint firstItem="egK-dx-KMC" firstAttribute="centerX" secondItem="fKf-0q-4n1" secondAttribute="centerX" id="asH-zf-bgi"/>
+                            <constraint firstItem="zW6-xf-tdP" firstAttribute="centerY" secondItem="fKf-0q-4n1" secondAttribute="centerY" id="p91-DB-a4R"/>
                             <constraint firstItem="qxs-Bj-30H" firstAttribute="top" secondItem="jnc-Zu-fK5" secondAttribute="top" constant="112" id="vo1-xr-RsK"/>
                         </constraints>
                     </view>
@@ -187,21 +208,24 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="lblBienvenida" destination="egK-dx-KMC" id="o50-oW-fab"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A7L-h3-2jc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3804" y="-35"/>
+            <point key="canvasLocation" x="4730.5343511450383" y="-35.211267605633807"/>
         </scene>
         <!--Nueva Tarea-->
         <scene sceneID="a7C-Vi-Pgf">
             <objects>
                 <viewController id="BNq-82-TAw" customClass="NuevaTareaViewController" customModule="NotasApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kQN-e5-kiq">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MSh-DO-QaS">
-                                <rect key="frame" x="36.666666666666657" y="313" width="320" height="216"/>
+                                <rect key="frame" x="36.666666666666657" y="318" width="320" height="216"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="2yK-wr-LF0"/>
                                 </constraints>
@@ -225,11 +249,11 @@
             <objects>
                 <viewController id="Ahs-fg-UqR" customClass="DatosViewController" customModule="NotasApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IRi-wi-OgC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7V9-3j-32I">
-                                <rect key="frame" x="175.66666666666666" y="61" width="42" height="21"/>
+                                <rect key="frame" x="175.66666666666666" y="164" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="vog-gw-dOS"/>
                                 </constraints>
@@ -249,14 +273,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Thk-h9-ReV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5618" y="-307"/>
+            <point key="canvasLocation" x="6544.2748091603053" y="-307.04225352112678"/>
         </scene>
         <!--Calendario-->
         <scene sceneID="OP1-hD-mTk">
             <objects>
                 <viewController id="zDz-vP-rri" customClass="CalendarViewController" customModule="NotasApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3hC-aM-D9W">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Hnn-Ed-mb8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -265,7 +289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9yf-M6-zwm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4769" y="227"/>
+            <point key="canvasLocation" x="5695.419847328244" y="226.7605633802817"/>
         </scene>
         <!--Calendario View Controller-->
         <scene sceneID="Rqj-y6-NT9">
@@ -280,12 +304,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yk0-l0-Tf4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7788.5496183206105" y="-6.3380281690140849"/>
+            <point key="canvasLocation" x="8715.2671755725187" y="-6.3380281690140849"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Yu-dM-suA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3ju-0n-Lba" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LogNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3ju-0n-Lba" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VuX-Hv-8vx">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -299,6 +323,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zrW-bb-47r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1983.9694656488548" y="-35.211267605633807"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aVB-xv-yZu">
+            <objects>
+                <navigationController storyboardIdentifier="MenuNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oGB-2v-jTO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NvO-cb-Odb">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Zcd-0C-2dT" kind="relationship" relationship="rootViewController" id="QSN-2E-1W1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uqw-FR-UMB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3803.8167938931297" y="-35.211267605633807"/>
         </scene>
     </scenes>
     <resources>

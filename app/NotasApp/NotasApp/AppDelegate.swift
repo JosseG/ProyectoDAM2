@@ -19,8 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CoreDataManager.shared.load{
             print("Se completo ")
         }
+        print("Verificando tmb")
         
-        verifyIsLogged()
+        /*verifyIsLogged()*/
         // Override point for customization after application launch.
         return true
     }

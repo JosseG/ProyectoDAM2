@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
                             
                             UserDefaults.standard.set(usernametoDB, forKey: "username")
                             
-                            print(UserDefaults.standard.value(forKey: "username"))
+                            print(UserDefaults.standard.value(forKey: "username")!)
                             
                             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
